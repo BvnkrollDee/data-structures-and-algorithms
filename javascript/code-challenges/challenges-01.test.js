@@ -29,6 +29,12 @@ Use `forEach` to loop over the input array. Modify each string, and add the upda
 ------------------------------------------------------------------------------------------------ */
 
 const addExclamation = (arr) => {
+  let newArray = []
+  arr.forEach((element) => {
+    newArray.push(element + "!");
+
+  });
+  return newArray
   // Solution code here...
 };
 
@@ -41,6 +47,13 @@ Use `forEach` to loop over the input array. The modified strings should each be 
 ------------------------------------------------------------------------------------------------ */
 
 const allUpperCase = (arr) => {
+  let largeLetters = [];
+  arr.forEach((element) => {
+   largeLetters.push(element.toUpperCase());
+
+  });
+
+  return largeLetters
   // Solution code here...
 };
 
@@ -55,10 +68,18 @@ Use `forEach` to build a new array of strings, each string modified by the callb
 ------------------------------------------------------------------------------------------------ */
 
 const greeting = (word) => {
+ let largeString = word.toUpperCase() + "!"
   // Solution code here...
+  return largeString
 };
 
 const speaker = (words, callback) => {
+  let bullShit = []
+  words.forEach((element) => {
+    let modifiedString = callback(element)
+    bullShit.push(modifiedString)
+  });
+  return bullShit
   // Solution code here...
 };
 
@@ -79,10 +100,15 @@ Return the modified array.
 ------------------------------------------------------------------------------------------------ */
 
 const addValues = (arr, value) => {
+  arr.push(value);
   // Solution code here...
 };
 
 const addNumbers = (num, arr, times, callback) => {
+  for (let i = 0; i < times; i++){
+    callback(arr, num)
+  }
+  return arr;
   // Solution code here...
 };
 
@@ -94,17 +120,25 @@ Write a function named createList that takes in an array of the current store in
 
 The inventory is formatted like this:
 [
-  { name: 'apples', available: true },
-  { name: 'pears', available: true },
-  { name: 'oranges', available: false },
-  { name: 'bananas', available: true },
-  { name: 'blueberries', available: false }
+  { name: 'apples', available: true},
+  { name: 'pears', available: true},
+  { name: 'oranges', available: false},
+  { name: 'bananas', available: true},
+  { name: 'blueberries', available: false},
 ]
 
 This function should use forEach to populate your grocery list based on the store's inventory. If the item is available, add it to your list. Return the final list.
 ------------------------------------------------------------------------------------------------ */
 
 const createList = (availableItems) => {
+let groceries = [];
+availableItems.forEach((element) => {
+  if (element.available === true){
+    groceries.push(element.name)
+  };
+
+});
+  return groceries
   // Solution code here...
 };
 
