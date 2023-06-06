@@ -10,11 +10,15 @@ E.g. [4,2,7,5,9,2] -> 9
 ------------------------------------------------------------------------------------------------ */
 const maxInArray = (arr) => {
   // Solution code here...
-  let maxNum = arr.reduce(acc, curr) => {
-    if (acc < curr){
-      then(return)
-    }
+  if (arr.length === 0) {
+    return undefined;
   }
+
+  const maxNum = arr.reduce((max, curr) => {
+    return Math.max(max, curr);
+  });
+
+  return maxNum;
 };
 
 /* ------------------------------------------------------------------------------------------------
@@ -31,6 +35,11 @@ const courseInfo = { name: 'Code 301', duration: { dayTrack: '4 weeks', eveningT
 
 const getCourseKeys = (obj) => {
   // Solution code here...
+  let keys = []
+  for(let property in courseInfo){
+keys.push(property)
+  }
+  return keys
 };
 
 /* ------------------------------------------------------------------------------------------------
@@ -43,6 +52,29 @@ Write a function named checkValues that takes in an object and a value and retur
 
 const checkValues = (obj, value) => {
   // Solution code here...
+if(Object.values(obj).includes(value)){
+  return true;
+}else{return false}
+
+
+
+// for(let value in obj){
+//   if(obj === value){
+//     return true
+//   }else{return false}
+// }
+
+// let keys = Object.keys(obj).forEach(property =>{
+//   console.log(property, obj[property])
+
+// } )
+// let values = Object.values(value).forEach(value => {
+//   console.log(value)
+// })
+// if(keys == property){
+//   return true
+// }else{return false}
+// if(values == value){}
 };
 
 /* ------------------------------------------------------------------------------------------------
@@ -66,6 +98,12 @@ HR has asked you to change the data to make it easier to print so that it looks 
 
 const updateNumbers = (obj) => {
   // Solution code here...
+
+    const keys = Object.keys(obj);
+    const updatedData = keys.map((name) => `${name}: ${obj[name]}`);
+    return updatedData;
+
+
 };
 
 
@@ -120,9 +158,13 @@ const characters = [
 ];
 
 const getHouses = (arr) => {
-  let houses = [];
+  // let houses = [];
   // Solution code here...
-  return houses;
+let findHome = arr.map(character => character.house)
+
+// houses.push(findHome)
+  return findHome;
+
 };
 
 /*------------------------------------------------------------------------------------------------
@@ -139,6 +181,9 @@ hasChildrenValues(characters, 'Sansa') will return false
 
 const hasChildrenValues = (arr, character) => {
   // Solution code here...
+  return arr.some(obj => Object.values(obj)
+  .includes(character) &&
+  'children' in obj);
 
 };
 
